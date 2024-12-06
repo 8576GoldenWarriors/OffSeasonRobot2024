@@ -21,14 +21,24 @@ public class Elevator extends PIDSubsystem {
   static CANSparkMax rightMotor = new CANSparkMax(Constants.ElevatorConstants.rightElevatorSparkMaxID, MotorType.kBrushless);
 
   static LaserCan lc = new LaserCan(30);
+
+
   static double temp = 0.0;
   public Elevator() {
     
     super(new PIDController(0.5, temp, temp));
+
+
     leftMotor.setIdleMode(IdleMode.kBrake);
     leftMotor.setInverted(false);
+
+    rightMotor.setIdleMode(IdleMode.kBrake);
     rightMotor.setInverted(true);
+
     setSetpoint(Constants.ElevatorConstants.kExampleSetpoint);
+
+    
+
   }
 
   @Override
